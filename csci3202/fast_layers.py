@@ -7,9 +7,6 @@ except ImportError:
   print('python setup.py build_ext --inplace')
   print('You may also need to restart your iPython kernel')
 
-from csci3202.im2col import *
-
-
 def conv_forward_im2col(x, w, b, conv_param):
   """
   A fast implementation of the forward pass for a convolutional layer
