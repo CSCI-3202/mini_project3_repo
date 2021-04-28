@@ -215,12 +215,14 @@ def batchnorm_backward(dout, cache):
       dxc += (2.0 / N) * xc * dvar
       dmu = np.sum(dxc, axis=0)
       dx = dxc - dmu / N
+      return dx, dgamma, dbeta
   elif mode == "test":
       mode, x, xn, gamma, beta, std = cache
       dbeta = dout.sum(axis=0)
       dgamma = np.sum(xn * dout, axis=0)
       dxn = gamma * dout
       dx = dxn / std
+      return dx, dgamma, dbeta
   else:
       raise ValueError(mode)
 
